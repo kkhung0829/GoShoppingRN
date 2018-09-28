@@ -24,6 +24,7 @@ import moment from 'moment';
 import { Modal, Alert, LayoutAnimation } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import RNCalendarUtil from 'react-native-calendar-util';
+import * as Progress from 'react-native-progress';
 
 import AnimateNumber from '../../components/AnimateNumber';
 import CouponItemList from '../CouponItemList';
@@ -63,6 +64,9 @@ class CouponsScreen extends PureComponent {
             activeCalendarFAB: false,
             login4UploadToDropBox: false,
             isBusy: false,
+            isInProgress: false,
+            progressHeader: '',
+            progress: 0.0,
         };
     }
 
@@ -312,6 +316,9 @@ class CouponsScreen extends PureComponent {
                 if (isAuthorized) {
                     return this._recreateCalendar(calendarName)
                         .then((calendarId) => {
+                            let progressTotal = this.props.items.size * 2;
+                            let progressCurr = 0;
+
                             let addExpireEvent4Item = (item) => {
                                 let options = RNCalendarUtil.getCalendarOptions();
                                 options.calendarId = calendarId;
@@ -326,6 +333,8 @@ class CouponsScreen extends PureComponent {
                                 return RNCalendarUtil.createEventWithOptions(title, location, notes, startTimeMS, endTimeMS, options)
                                     .then(eventId => {
 // console.log('Adding Expiry Event[' + title + ']@[' + moment(startTimeMS).format('ll') + ']... Done');
+                                        progressCurr++;
+                                        this.setState({ progress: progressCurr / progressTotal });
                                         return eventId;
                                     })
                                     .catch(err => {
@@ -348,6 +357,8 @@ class CouponsScreen extends PureComponent {
                                 return RNCalendarUtil.createEventWithOptions(title, location, notes, startTimeMS, endTimeMS, options)
                                     .then(eventId => {
 // console.log('Adding Start Event[' + title + ']@[' + moment(startTimeMS).format('ll') + ']... Done');
+                                        progressCurr++;
+                                        this.setState({ progress: progressCurr / progressTotal });
                                         return eventId;
                                     })
                                     .catch(err => {
@@ -376,7 +387,11 @@ class CouponsScreen extends PureComponent {
             [
                 { text: 'Cancel', onPress: () => {}, style: 'cancel' },
                 { text: 'OK', onPress: () => {
-                    this.setState({ isBusy: true });
+                    this.setState({
+                        isInProgress: true,
+                        progressHeader: 'Refresh Calendar Event',
+                        progress: 0.0,
+                    });
                     this._doRefreshCalendarEvent(CALENDAR_NAME)
                         .then(() => {
                             Toast.show({
@@ -397,7 +412,9 @@ class CouponsScreen extends PureComponent {
                             });
                         })
                         .finally(() => {
-                            this.setState({ isBusy: false});
+                            this.setState({
+                                isInProgress: false,
+                            });
                         });
                 }},
             ],
@@ -564,6 +581,34 @@ class CouponsScreen extends PureComponent {
                             onSuccess={this._dropBoxLoginSuccess}
                             onCancel={this._dropBoxLoginCancel}
                         />
+                    </Modal>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={this.state.isInProgress}
+                        onRequestClose={() => {}}
+                    >
+                        <View style={{
+                                    flex: 1,
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    backgroundColor: 'rgba(1,1,1,0.5)',
+                                }}
+                        >
+                            <View>
+                                <Card  style={{ backgroundColor: 'rgba(1,1,1,1)' }}>
+                                    <CardItem header>
+                                        <Text>{this.state.progressHeader}</Text>
+                                    </CardItem>
+                                    <CardItem>
+                                        <Body style={{flexDirection: "row", justifyContent: "center"}}>
+                                            <Progress.Circle progress={this.state.progress} showsText={true} />
+                                        </Body>
+                                    </CardItem>
+                                </Card>
+                            </View>
+                        </View>
                     </Modal>
                 </Content>
                 { this.state.isActionButtonVisible &&
