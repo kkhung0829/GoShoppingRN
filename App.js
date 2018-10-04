@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 import { createMaterialBottomTabNavigator  } from 'react-navigation-material-bottom-tabs';
+import codePush from "react-native-code-push";
 
 import { Root } from "native-base";
 
@@ -20,7 +21,7 @@ const RootStack = createMaterialBottomTabNavigator (
   }
 );
 
-export default class App extends Component {
+class App extends Component {
   render() {
     const {store, persistor} = createReduxStore();
 
@@ -35,3 +36,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default codePush(App);

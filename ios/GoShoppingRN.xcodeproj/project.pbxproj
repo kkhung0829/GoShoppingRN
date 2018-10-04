@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -61,6 +60,10 @@
 		BD2787A3578940ACAD2B514B /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D54DD1B528464CF39D725A3A /* libRNFetchBlob.a */; };
 		D90B65563B1C4F15855C1BF2 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8727D66B73AA4798889518E6 /* libRNFS.a */; };
 		F694298F0C4E40FCBE59F67C /* libRNCalendarUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5CF4EF99CC49F49E37F421 /* libRNCalendarUtil.a */; };
+		F3A1D413B3944B3A9B57AB04 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C08CA061A4C044EA86B4B9CC /* libCodePush.a */; };
+		F44E68E058C4466E837E8928 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A69C55B6BE74A11B5CF8E4C /* libz.tbd */; };
+		58DB51CD81DA4A42A54CD4CC /* libRNVersionNumber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AAB991B5244AD1BACF387B /* libRNVersionNumber.a */; };
+		FBFB2D754D5C4513B24F33E5 /* libRNVersionNumber-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 595217277B49400884B7ACC3 /* libRNVersionNumber-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -450,6 +453,12 @@
 		EA7F91198FCD458ABFD35E38 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		EAD5C7C273064AE9B25700C0 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		ED7F5C17BC084AB1A2896E93 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		ACBF2997770E41338FF2306F /* CodePush.xcodeproj */ = {isa = PBXFileReference; name = "CodePush.xcodeproj"; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C08CA061A4C044EA86B4B9CC /* libCodePush.a */ = {isa = PBXFileReference; name = "libCodePush.a"; path = "libCodePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7A69C55B6BE74A11B5CF8E4C /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		67701B0C979B46538537C423 /* RNVersionNumber.xcodeproj */ = {isa = PBXFileReference; name = "RNVersionNumber.xcodeproj"; path = "../node_modules/react-native-version-number/ios/RNVersionNumber.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		17AAB991B5244AD1BACF387B /* libRNVersionNumber.a */ = {isa = PBXFileReference; name = "libRNVersionNumber.a"; path = "libRNVersionNumber.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		595217277B49400884B7ACC3 /* libRNVersionNumber-tvOS.a */ = {isa = PBXFileReference; name = "libRNVersionNumber-tvOS.a"; path = "libRNVersionNumber-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,6 +492,9 @@
 				0482BFE041CF4279BECEABFF /* libRNVectorIcons.a in Frameworks */,
 				BD2787A3578940ACAD2B514B /* libRNFetchBlob.a in Frameworks */,
 				F694298F0C4E40FCBE59F67C /* libRNCalendarUtil.a in Frameworks */,
+				F3A1D413B3944B3A9B57AB04 /* libCodePush.a in Frameworks */,
+				F44E68E058C4466E837E8928 /* libz.tbd in Frameworks */,
+				58DB51CD81DA4A42A54CD4CC /* libRNVersionNumber.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +510,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				FBFB2D754D5C4513B24F33E5 /* libRNVersionNumber-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +645,7 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				7A69C55B6BE74A11B5CF8E4C /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -737,6 +751,8 @@
 				CB5EC13A022B448698E187A4 /* RNVectorIcons.xcodeproj */,
 				9A604C3C7E6042CA90356E27 /* RNFetchBlob.xcodeproj */,
 				97069A74409540F9AEF5B422 /* RNCalendarUtil.xcodeproj */,
+				ACBF2997770E41338FF2306F /* CodePush.xcodeproj */,
+				67701B0C979B46538537C423 /* RNVersionNumber.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1482,12 +1498,17 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = GoShoppingRNTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1512,12 +1533,17 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = GoShoppingRNTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1543,6 +1569,8 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = GoShoppingRN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1569,6 +1597,8 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = GoShoppingRN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1602,11 +1632,16 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = "GoShoppingRN-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1640,11 +1675,16 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = "GoShoppingRN-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1677,11 +1717,16 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = "GoShoppingRN-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1714,11 +1759,16 @@
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
 					"$(SRCROOT)..\node_modules\neact-native-calendar-utilios",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
+					"$(SRCROOT)\..\node_modules\react-native-version-number\ios",
 				);
 				INFOPLIST_FILE = "GoShoppingRN-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
