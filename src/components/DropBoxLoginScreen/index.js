@@ -14,6 +14,11 @@ import {
     Icon,
 } from 'native-base';
 
+//====== Native Base Theme ======
+import { StyleProvider } from 'native-base';
+import getTheme from '../../../native-base-theme/components';
+import myTheme from '../../../native-base-theme/variables/myTheme';
+
 const REDIRECT_URI = 'http://localhost';
 const ACCESS_TOKEN = 'access_token';
 
@@ -49,7 +54,7 @@ class DropBoxLoginScreen extends PureComponent {
             + '&response_type=token';
 
         return (
-            <Container>
+            <StyleProvider style={getTheme(myTheme)}><Container>
                 <Header>
                     <Body>
                         <Title>DropBox Login</Title>
@@ -66,7 +71,7 @@ class DropBoxLoginScreen extends PureComponent {
                         source={{uri: uri}}
                         onLoadStart={this._loginURLHandler}
                     />
-            </Container>
+            </Container></StyleProvider>
         );
     }
 }

@@ -43,6 +43,11 @@ import {
     dropboxSetAccessToken,
 } from '../../reducers/DropBox/actions';
 
+//====== Native Base Theme ======
+import { StyleProvider } from 'native-base';
+import getTheme from '../../../native-base-theme/components';
+import myTheme from '../../../native-base-theme/variables/myTheme';
+
 const COUPONS_FILE_PATH = '/coupons.rn.json';
 const CALENDAR_NAME = "GoShopping-Coupons.rn";
 const CALENDAR_EVENT_LOCATION = CALENDAR_NAME;
@@ -529,7 +534,7 @@ class CouponsScreen extends PureComponent {
         ) : null;
 
         return (
-            <Container>
+            <StyleProvider style={getTheme(myTheme)}><Container>
                 <Header>
                     <Body>
                         <Title>
@@ -677,7 +682,7 @@ class CouponsScreen extends PureComponent {
                         </Button>
                     </Fab>
                 }
-            </Container>
+            </Container></StyleProvider>
         );
     }
 }

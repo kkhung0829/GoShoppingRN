@@ -20,6 +20,11 @@ import {
 } from 'native-base';
 import { Alert } from "react-native";
 
+//====== Native Base Theme ======
+import { StyleProvider } from 'native-base';
+import getTheme from '../../../native-base-theme/components';
+import myTheme from '../../../native-base-theme/variables/myTheme';
+
 function isDefinedAndNotNull(val) {
     return val !== undefined && val !== null;
 }
@@ -71,7 +76,7 @@ class CouponItemDetailScreen extends PureComponent {
         );
         
         return (
-            <Container>
+            <StyleProvider style={getTheme(myTheme)}><Container>
                 {this.props.id ? uiHeader4Edit : uiHeader4New}
                 <Content>
                     <Form>
@@ -128,7 +133,7 @@ class CouponItemDetailScreen extends PureComponent {
                         <Text>Cancel</Text>
                     </Button>
                 </FooterTab></Footer>
-            </Container>
+            </Container></StyleProvider>
         );
     }
 }

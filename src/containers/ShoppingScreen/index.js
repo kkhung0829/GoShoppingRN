@@ -27,6 +27,11 @@ import {
     shoppingItemClear,
 } from '../../reducers/ShoppingItems/actions';
 
+//====== Native Base Theme ======
+import { StyleProvider } from 'native-base';
+import getTheme from '../../../native-base-theme/components';
+import myTheme from '../../../native-base-theme/variables/myTheme';
+
 class ShoppingScreen extends PureComponent {
     static navigationOptions = {
         title: 'Shopping',
@@ -71,7 +76,7 @@ class ShoppingScreen extends PureComponent {
         }, 0.0);
 
         return (
-            <Container>
+            <StyleProvider style={getTheme(myTheme)}><Container>
                 <Header>
                     <Body>
                         <AnimateNumber
@@ -123,7 +128,7 @@ class ShoppingScreen extends PureComponent {
                         </Button>
                     </FooterTab>
                 </Footer>
-            </Container>
+            </Container></StyleProvider>
         );
     }
 }

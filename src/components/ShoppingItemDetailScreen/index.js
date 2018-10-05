@@ -24,6 +24,11 @@ import CameraRollPicker from 'react-native-camera-roll-picker';
 
 import TakePhotoScreen from '../TakePhotoScreen';
 
+//====== Native Base Theme ======
+import { StyleProvider } from 'native-base';
+import getTheme from '../../../native-base-theme/components';
+import myTheme from '../../../native-base-theme/variables/myTheme';
+
 function isDefinedAndNotNull(val) {
     return val !== undefined && val !== null;
 }
@@ -95,7 +100,7 @@ class ShoppingItemDetailScreen extends PureComponent {
             :   <Icon type="FontAwesome" name="photo" />;
 
         return (
-            <Container>
+            <StyleProvider style={getTheme(myTheme)}><Container>
                 {this.props.id ? uiHeader4Edit : uiHeader4New}
                 <Content>
                     <Form>
@@ -166,7 +171,7 @@ class ShoppingItemDetailScreen extends PureComponent {
                         <Text>Cancel</Text>
                     </Button>
                 </FooterTab></Footer>
-            </Container>
+            </Container></StyleProvider>
         );
     }
 }
