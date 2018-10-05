@@ -1,6 +1,8 @@
 package com.goshoppingrn;
 
 import android.app.Application;
+import android.os.Build;
+import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 import com.apsl.versionnumber.RNVersionNumberPackage;
@@ -34,10 +36,12 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
+      Log.d("MainApplication", "CODEPUSH.KEY: " + BuildConfig.CODEPUSH_KEY);
+
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNVersionNumberPackage(),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+            new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG),
             new RNCalendarUtilPackage(),
             new RNFetchBlobPackage(),
             new VectorIconsPackage(),

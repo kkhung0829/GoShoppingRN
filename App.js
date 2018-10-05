@@ -32,55 +32,40 @@ class App extends Component {
         type: "success",
         duration: 1000,
       });
+
+      // Check if there is currently a CodePush update running
+      codePush.getUpdateMetadata().then((update) => {
+        if (update) {
+          console.log('[=== Code Push ===] Current Package Info: ' + JSON.stringify(update));
+        }
+      });
+
+      // Check to see if there is still an update pending.
+      codePush.getUpdateMetadata(codePush.UpdateState.PENDING).then((update) => {
+        if (update) {
+          console.log('[=== Code Push ===] PENDING Package Info: ' + JSON.stringify(update));
+        }
+      });
     }, 1000);
+
   }
 
   codePushStatusDidChange(status) {
     switch(status) {
         case codePush.SyncStatus.CHECKING_FOR_UPDATE:
             console.log("[=== Code Push ===] Checking for updates.");
-            Toast.show({
-              text: "[=== Code Push ===] Checking for updates.",
-              buttonText: "Okay",
-              type: "success",
-              duration: 1000,
-            });
             break;
         case codePush.SyncStatus.DOWNLOADING_PACKAGE:
             console.log("[=== Code Push ===] Downloading package.");
-            Toast.show({
-              text: "[=== Code Push ===] Downloading package.",
-              buttonText: "Okay",
-              type: "success",
-              duration: 1000,
-            });
             break;
         case codePush.SyncStatus.INSTALLING_UPDATE:
             console.log("[=== Code Push ===] Installing update.");
-            Toast.show({
-              text: "[=== Code Push ===] Installing update.",
-              buttonText: "Okay",
-              type: "success",
-              duration: 1000,
-            });
             break;
         case codePush.SyncStatus.UP_TO_DATE:
             console.log("[=== Code Push ===] Up-to-date.");
-            Toast.show({
-              text: "[=== Code Push ===] Up-to-date.",
-              buttonText: "Okay",
-              type: "success",
-              duration: 1000,
-            });
             break;
         case codePush.SyncStatus.UPDATE_INSTALLED:
             console.log("[=== Code Push ===] Update installed.");
-            Toast.show({
-              text: "[=== Code Push ===] Update installed.",
-              buttonText: "Okay",
-              type: "success",
-              duration: 1000,
-            });
             break;
       }
   }
