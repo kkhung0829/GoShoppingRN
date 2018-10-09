@@ -10,6 +10,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <React/RCTLog.h>
 
 @implementation AppDelegate
 
@@ -17,6 +18,7 @@
 {
   NSURL *jsCodeLocation;
 
+  RCTSetLogThreshold(RCTLogLevelInfo);
   
     #ifdef DEBUG
         jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
