@@ -5,6 +5,7 @@ import android.os.Build;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.apsl.versionnumber.RNVersionNumberPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.reactlibrary.RNCalendarUtilPackage;
@@ -40,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
 
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeConfigPackage(),
             new RNVersionNumberPackage(),
             new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG),
             new RNCalendarUtilPackage(),

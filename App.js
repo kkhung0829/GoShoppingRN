@@ -5,6 +5,8 @@ import { createMaterialBottomTabNavigator  } from 'react-navigation-material-bot
 import codePush from "react-native-code-push";
 import { Toast } from 'native-base';
 import VersionNumber from 'react-native-version-number';
+import {Platform} from 'react-native';
+import Config from 'react-native-config';
 
 import { Root } from "native-base";
 
@@ -89,4 +91,15 @@ class App extends Component {
   }
 }
 
-export default codePush(App);
+export default codePush({
+  updateDialog: true,
+  installMode: codePush.InstallMode.IMMEDIATE,
+  ...Platform.select({
+    ios: {
+      deploymentKey: Config.DEPOLYMENT_KEY_IOS,
+    },
+    android: {
+      deploymentKey: Config.DEPOLYMENT_KEY_ANDROID,
+    },
+  }),
+})(App);
