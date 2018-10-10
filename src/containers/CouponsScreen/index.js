@@ -660,25 +660,12 @@ class CouponsScreen extends PureComponent {
                     >
                         <Icon name="logo-dropbox" />
                         <Button
-                            onPress={this._uploadToCloud}>
-                            <Icon name="cloud-upload" />
-                        </Button>
-                    </Fab>
-                }
-                { this.state.isActionButtonVisible &&
-                    <Fab
-                        position="bottomRight"
-                        direction="left"
-                        active={this.state.activeDropBoxFAB}
-                        onPress={() => this.setState({
-                            activeDropBoxFAB: !this.state.activeDropBoxFAB,
-                            activeCalendarFAB: false,
-                        })}
-                    >
-                        <Icon name="logo-dropbox" />
-                        <Button
                             onPress={this._downloadFromCloud}>
                             <Icon name="cloud-download" />
+                        </Button>
+                        <Button
+                            onPress={this._uploadToCloud}>
+                            <Icon name="cloud-upload" />
                         </Button>
                     </Fab>
                 }
