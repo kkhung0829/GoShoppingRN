@@ -28,12 +28,12 @@ const RootStack = createMaterialBottomTabNavigator (
 class App extends Component {
   componentDidMount() {
     setTimeout(function() {
-      Toast.show({
-        text: "Version: " + VersionNumber.appVersion + "-" + VersionNumber.buildVersion,
-        buttonText: "Okay",
-        type: "success",
-        duration: 1000,
-      });
+      // Toast.show({
+      //   text: "Version: " + VersionNumber.appVersion + "-" + VersionNumber.buildVersion,
+      //   buttonText: "Okay",
+      //   type: "success",
+      //   duration: 1000,
+      // });
 
       // Check if there is currently a CodePush update running
       codePush.getUpdateMetadata().then((update) => {
