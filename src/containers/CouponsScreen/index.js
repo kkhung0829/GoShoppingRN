@@ -468,6 +468,16 @@ class CouponsScreen extends PureComponent {
         this.listViewOffset = currentOffset;
     };
 
+    _ref4CalendarRefreshFAB = null;
+    _disableCalendarRefreshFABOnPress = false;
+    _ref4CalendarDeleteFAB = null;
+    _disableCalendarDeleteFABOnPress = false;
+
+    _ref4DropBoxUploadFAB = null;
+    _disableDropBoxUploadFABOnPress = false;
+    _ref4DropBoxDownloadFAB = null;
+    _disableDropBoxDownloadFABOnPress = false;
+
     render() {
         var numExpiredItem = CouponItemList.countNumItem('expired', this.props.items);
         var gui4ExpiredItemList = numExpiredItem > 0 ?
@@ -630,18 +640,55 @@ class CouponsScreen extends PureComponent {
                 { this.state.isActionButtonVisible &&
                     <Fab containerStyle={{left: '43%'}}
                         position="bottomLeft"
-                        direction="up"
+                        direction="left"
                         active={this.state.activeCalendarFAB}
-                        onPress={() => this.setState({
-                            activeCalendarFAB: !this.state.activeCalendarFAB,
-                            activeDropBoxFAB: false,
-                        })}
+                        onPress={() => {
+                            this.setState({
+                                activeCalendarFAB: !this.state.activeCalendarFAB,
+                                activeDropBoxFAB: false,
+                            });
+
+                            if (this._disableCalendarRefreshFABOnPress) {
+                                // Triggered by _ref4CalendarDeleteFAB
+                                this._disableCalendarRefreshFABOnPress = false;
+                            } else {
+                                // Trigger onPress to _ref4CalendarDeleteFAB
+                                this._disableCalendarDeleteFABOnPress = true;
+                                this._ref4CalendarDeleteFAB.fabOnPress();
+                            }
+                        }}
+                        ref={(c) => { this._ref4CalendarRefreshFAB = c ? c._root : null; }}
                     >
                         <Icon name="calendar" />
                         <Button
                             onPress={this._refreshCalendarEvent}>
                             <Icon name="refresh" />
                         </Button>
+                    </Fab>
+                }
+                { this.state.isActionButtonVisible &&
+                    <Fab containerStyle={{left: '43%'}}
+                        position="bottomLeft"
+                        direction="right"
+                        active={this.state.activeCalendarFAB}
+                        onPress={() => {
+                            this.setState({
+                                activeCalendarFAB: !this.state.activeCalendarFAB,
+                                activeDropBoxFAB: false,
+                            });
+
+                            if (this._disableCalendarDeleteFABOnPress) {
+                                // Triggered by _ref4CalendarRefreshFAB
+                                this._disableCalendarDeleteFABOnPress = false;
+                            } else {
+                                // Trigger onPress to _ref4CalendarRefreshFAB
+                                this._disableCalendarRefreshFABOnPress = true;
+                                this._ref4CalendarRefreshFAB.fabOnPress();
+                            }
+                        }}
+                        ref={(c) => { this._ref4CalendarDeleteFAB = c ? c._root : null; }}
+                    >
+                        <Icon name="calendar" />
                         <Button
                             onPress={this._deleteCalendar}>
                             <Icon type="MaterialIcons" name="delete" />
@@ -653,19 +700,56 @@ class CouponsScreen extends PureComponent {
                         position="bottomRight"
                         direction="up"
                         active={this.state.activeDropBoxFAB}
-                        onPress={() => this.setState({
-                            activeDropBoxFAB: !this.state.activeDropBoxFAB,
-                            activeCalendarFAB: false,
-                        })}
+                        onPress={() => {
+                            this.setState({
+                                activeDropBoxFAB: !this.state.activeDropBoxFAB,
+                                activeCalendarFAB: false,
+                            });
+
+                            if (this._disableDropBoxUploadFABOnPress) {
+                                // Triggered by _ref4DropBoxDownloadFAB
+                                this._disableDropBoxUploadFABOnPress = false;
+                            } else {
+                                // Trigger onPress to _ref4DropBoxDownloadFAB
+                                this._disableDropBoxDownloadFABOnPress = true;
+                                this._ref4DropBoxDownloadFAB.fabOnPress();
+                            }
+                        }}
+                        ref={(c) => { this._ref4DropBoxUploadFAB = c ? c._root : null; }}
+                    >
+                        <Icon name="logo-dropbox" />
+                        <Button
+                            onPress={this._uploadToCloud}>
+                            <Icon name="cloud-upload" />
+                        </Button>
+                    </Fab>
+                }
+                { this.state.isActionButtonVisible &&
+                    <Fab
+                        position="bottomRight"
+                        direction="left"
+                        active={this.state.activeDropBoxFAB}
+                        onPress={() => {
+                            this.setState({
+                                activeDropBoxFAB: !this.state.activeDropBoxFAB,
+                                activeCalendarFAB: false,
+                            });
+
+                            if (this._disableDropBoxDownloadFABOnPress) {
+                                // Triggered by _ref4DropBoxUploadFAB
+                                this._disableDropBoxDownloadFABOnPress = false;
+                            } else {
+                                // Trigger onPress to _ref4DropBoxUploadFAB
+                                this._disableDropBoxUploadFABOnPress = true;
+                                this._ref4DropBoxUploadFAB.fabOnPress();
+                            }
+                        }}
+                        ref={(c) => { this._ref4DropBoxDownloadFAB = c ? c._root : null; }}
                     >
                         <Icon name="logo-dropbox" />
                         <Button
                             onPress={this._downloadFromCloud}>
                             <Icon name="cloud-download" />
-                        </Button>
-                        <Button
-                            onPress={this._uploadToCloud}>
-                            <Icon name="cloud-upload" />
                         </Button>
                     </Fab>
                 }
